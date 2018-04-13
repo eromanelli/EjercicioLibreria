@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class Ejecutora {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Libreria e = new Libreria();
+		int respuesta,valor;
+		String nac,aut;
+		
+		Scanner entrada = new Scanner (System.in);
+		do
+		{
+		
+		System.out.print("MENU DE OPCIONES: 1=AGREGAR UN LIBRO 2=AGREGAR EJEMPLARES POR ISBN 3=CONSULTAR TITULOS DISPONIBLES AUTOR 4=CONSULTAR AUTORES DE NACIONALIDAD DADA 5=CONSULTAR TODOS LOS LIBROS DE AUTORES DE NACIONALIDAD DADA 6=CONSULTAR AUTORES CON MAS DE 3 LIBROS ESCRITOS 7=CONSULTAR LIBRO CON MAYOR CANTIDAD DE EJEMPLARES 0=FIN DE OPERACIONES" );
+		respuesta=entrada.nextInt();
+		
+		if(respuesta==1)
+		{
+			e.agregarLibro();
+		}
+		else
+			if(respuesta==2)
+			{
+				
+				System.out.print("Ingrese ISBN a buscar: ");
+				valor = entrada.nextInt();
+				e.agregarEjemplaresLibro(valor);
+			}
+			else
+				if(respuesta==3)
+				{
+					
+					System.out.print("Ingrese un autor: ");
+					aut = entrada.next();
+					e.mostrarEjemplaresDisponibles(aut);
+				}
+				else
+					if(respuesta==4)
+					{	
+						
+						System.out.print("Ingrese una nacionalidad: ");
+						nac = entrada.next();
+						e.mostrarAutoresNacionalidad(nac);
+					}
+					else
+						if(respuesta==5)
+						{
+							System.out.print("Ingrese una nacionalidad: ");
+							nac = entrada.next();
+							e.consultarTitulosAutoresNacionalidad(nac);
+						}
+						else
+							if(respuesta==6)
+							{
+								e.consultarAutoresMasDe3Titulos();
+							}
+							else
+							{
+								e.mayorEjemplaresVenta();
+							}
+		
+			
+		}while(respuesta!=0);
+	}
+
+}
